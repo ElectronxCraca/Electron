@@ -137,6 +137,53 @@ video {
   color: #fff;
 }
 
+.about-btn {
+  display: inline-block;
+  margin: 20px 0 10px;
+  padding: 10px 20px;
+  background: #00ffcc;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ffcc;
+  transition: 0.3s;
+}
+
+.about-btn:hover {
+  background: #00ccaa;
+  box-shadow: 0 0 25px #00ffcc;
+}
+
+.info-box {
+  display: none;
+  text-align: left;
+  margin-top: 25px;
+}
+
+.info-box.active {
+  display: block;
+}
+
+.info-box h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #00ffcc;
+  padding-bottom: 5px;
+}
+
+.info-box ul {
+  list-style: none;
+  padding: 0;
+  line-height: 1.8;
+}
+
+.info-box ul li::before {
+  content: "› ";
+  color: #00c6ff;
+}
+
 .telegram-btn {
   display: inline-block;
   margin-top: 25px;
@@ -181,8 +228,10 @@ footer {
     <div>Session closed.</div>
   </div>
 
-  <div class="info-box">
-    <h2><i class="fas fa-user"></i> About Me</h2>
+  <button class="about-btn" onclick="toggleAbout()">About Me</button>
+
+  <div class="info-box" id="aboutBox">
+    <h2><i class="fas fa-user"></i> Personal Info</h2>
     <ul>
       <li><strong>Country:</strong> India</li>
       <li><strong>Age:</strong> 16</li>
@@ -197,5 +246,10 @@ footer {
 </div>
 <footer>© 2025 Electron. All Rights Reserved.</footer>
 
-  </div></body>
+  </div>  <script>
+    function toggleAbout() {
+      const box = document.getElementById('aboutBox');
+      box.classList.toggle('active');
+    }
+  </script></body>
 </html>
